@@ -2,16 +2,12 @@ name = "meowcake"
 main = "build/index.js"
 compatibility_date = "2026-05-08"
 
-[build]
-command = "cargo install -q \"worker-build@^0.8\" && worker-build --release --panic-unwind"
-
 [observability]
 enabled = false
 head_sampling_rate = 1
 
 [observability.logs]
 enabled = true
-head_sampling_rate = 1
 persist = true
 invocation_logs = true
 
