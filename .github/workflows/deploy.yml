@@ -8,13 +8,13 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Say hello
         run: echo "Hello from GitHub Actions 🚀"
