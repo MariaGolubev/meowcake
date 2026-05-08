@@ -4,3 +4,7 @@ compatibility_date = "2026-05-08"
 
 [build]
 command = "cargo install -q \"worker-build@^0.8\" && worker-build --release --panic-unwind"
+
+[observability.logs]
+enabled = false
+invocation_logs = true

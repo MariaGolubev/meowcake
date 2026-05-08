@@ -1,0 +1,19 @@
+<header class="border-b border-slate-200">
+	<nav class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+		<a href="/" class="text-lg font-semibold tracking-tight">{{ brand | default("Meowcake") }}</a>
+		<ul class="flex items-center gap-4 text-sm font-medium">
+			<li>
+				<a href="/" class="text-muted hover:text-text{% if current_page == Page::Home %}{{ " text-text underline
+					underline-offset-4" }}{% endif %}">Home</a>
+			</li>
+			<li>
+				<a href="/about" class="text-muted hover:text-text{% if current_page == Page::About %}{{ " text-text
+					underline underline-offset-4" }}{% endif %}">About</a>
+			</li>
+			<li>
+				<a href="/contact" class="text-muted hover:text-text{% if current_page == Page::Contact %}{{ " text-text
+					underline underline-offset-4" }}{% endif %}">Contact</a>
+			</li>
+		</ul>
+	</nav>
+</header>
