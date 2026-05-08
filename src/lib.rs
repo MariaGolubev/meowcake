@@ -12,44 +12,32 @@ enum Page {
 #[derive(Template)]
 #[template(path = "index.html")]
 struct IndexTemplate {
-    title: Cow<'static, str>,
     brand: Cow<'static, str>,
     current_page: Page,
-    heading: Cow<'static, str>,
-    description: Cow<'static, str>,
     boosted: bool,
 }
 
 #[derive(Template)]
 #[template(path = "about.html")]
 struct AboutTemplate {
-    title: Cow<'static, str>,
     brand: Cow<'static, str>,
     current_page: Page,
-    heading: Cow<'static, str>,
-    description: Cow<'static, str>,
     boosted: bool,
 }
 
 #[derive(Template)]
 #[template(path = "contact.html")]
 struct ContactTemplate {
-    title: Cow<'static, str>,
     brand: Cow<'static, str>,
     current_page: Page,
-    heading: Cow<'static, str>,
-    description: Cow<'static, str>,
     boosted: bool,
 }
 
 async fn index(req: Request, _ctx: RouteContext<()>) -> Result<Response> {
     let boosted = is_boosted(&req);
     let index_template = IndexTemplate {
-        title: Cow::Borrowed("Meowcake - A simple web framework for Cloudflare Workers"),
         brand: Cow::Borrowed("Meowcake"),
         current_page: Page::Home,
-        heading: Cow::Borrowed("Welcome to Meowcake!"),
-        description: Cow::Borrowed("A simple web framework for Cloudflare Workers."),
         boosted,
     };
 
@@ -59,13 +47,8 @@ async fn index(req: Request, _ctx: RouteContext<()>) -> Result<Response> {
 async fn about(req: Request, _ctx: RouteContext<()>) -> Result<Response> {
     let boosted = is_boosted(&req);
     let about_template = AboutTemplate {
-        title: Cow::Borrowed("About Meowcake"),
         brand: Cow::Borrowed("Meowcake"),
         current_page: Page::About,
-        heading: Cow::Borrowed("About"),
-        description: Cow::Borrowed(
-            "Meowcake is a minimalist web framework for Cloudflare Workers.",
-        ),
         boosted,
     };
 
@@ -75,11 +58,8 @@ async fn about(req: Request, _ctx: RouteContext<()>) -> Result<Response> {
 async fn contact(req: Request, _ctx: RouteContext<()>) -> Result<Response> {
     let boosted = is_boosted(&req);
     let contact_template = ContactTemplate {
-        title: Cow::Borrowed("Contact"),
         brand: Cow::Borrowed("Meowcake"),
         current_page: Page::Contact,
-        heading: Cow::Borrowed("Contact"),
-        description: Cow::Borrowed("Say hello at hello@meowcake.dev."),
         boosted,
     };
 
